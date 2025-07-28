@@ -2,41 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* M-Pesa MVP Design System - Fintech Green Theme
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 0 0% 98%;
+    --foreground: 180 5% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 180 5% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 180 5% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary: Deep forest green for trust and money */
+    --primary: 152 68% 25%;
+    --primary-foreground: 0 0% 98%;
+    --primary-light: 152 68% 35%;
+    --primary-glow: 152 68% 45%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary: Soft green for subtle elements */
+    --secondary: 150 20% 92%;
+    --secondary-foreground: 152 68% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 150 10% 95%;
+    --muted-foreground: 180 5% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent: Bright lime for success states */
+    --accent: 82 84% 47%;
+    --accent-foreground: 180 5% 15%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Success: Bright green for positive actions */
+    --success: 120 100% 40%;
+    --success-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Warning: Amber for pending states */
+    --warning: 38 92% 50%;
+    --warning-foreground: 180 5% 15%;
 
-    --radius: 0.5rem;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 150 15% 85%;
+    --input: 150 15% 90%;
+    --ring: 152 68% 25%;
+
+    --radius: 0.75rem;
+
+    /* Gradients for premium fintech feel */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(var(--accent)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-glow)) 100%);
+    
+    /* Shadows for depth */
+    --shadow-card: 0 4px 6px -1px hsl(var(--primary) / 0.1), 0 2px 4px -2px hsl(var(--primary) / 0.1);
+    --shadow-button: 0 2px 4px hsl(var(--primary) / 0.2);
+    --shadow-float: 0 10px 25px -5px hsl(var(--primary) / 0.15);
 
     --sidebar-background: 0 0% 98%;
 

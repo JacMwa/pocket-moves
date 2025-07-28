@@ -1,13 +1,40 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React, { useState } from 'react';
+import AuthGuard from '@/components/auth/AuthGuard';
+import Dashboard from '@/components/dashboard/Dashboard';
+import SendMoney from '@/components/send/SendMoney';
+import DepositMoney from '@/components/deposit/DepositMoney';
+import WithdrawMoney from '@/components/withdraw/WithdrawMoney';
+
+type ViewType = 'dashboard' | 'send' | 'deposit' | 'withdraw';
 
 const Index = () => {
+  const [currentView, setCurrentView] = useState<ViewType>('dashboard');
+
+  const renderView = () => {
+    switch (currentView) {
+      case 'send':
+        return <SendMoney onBack={() => setCurrentView('dashboard')} />;
+      case 'deposit':
+        return <DepositMoney onBack={() => setCurrentView('dashboard')} />;
+      case 'withdraw':
+        return <WithdrawMoney onBack={() => setCurrentView('dashboard')} />;
+      default:
+        return (
+          <Dashboard
+            onSendMoney={() => setCurrentView('send')}
+            onDeposit={() => setCurrentView('deposit')}
+            onWithdraw={() => setCurrentView('withdraw')}
+          />
+        );
+    }
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <AuthGuard>
+      <div className="max-w-md mx-auto bg-background min-h-screen">
+        {renderView()}
       </div>
-    </div>
+    </AuthGuard>
   );
 };
 
